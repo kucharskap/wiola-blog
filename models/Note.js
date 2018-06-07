@@ -3,6 +3,8 @@ const Schema   = mongoose.Schema;
 
 const noteSchema = new Schema({
   text: String,
+  title: String,
+  header: String,
 }, {
   timestamps: {
     createdAt: 'created_at',

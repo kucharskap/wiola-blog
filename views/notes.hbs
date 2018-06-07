@@ -1,4 +1,6 @@
 <h1>Hii</h1>
 {{#each notes}}
-<div>{{this.text}}</div>
+<h2>{{this.title}}</h2>
+<h3>{{this.header}}</h3>
+<button><a href="/note/display/{{this._id}}">Zobacz więcej</a></button>
 {{/each}}
