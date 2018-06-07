@@ -14,6 +14,7 @@ const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
     
 
+
 mongoose.Promise = Promise;
 mongoose
   .connect('mongodb://localhost/wiola-blog', {useMongoClient: true})
@@ -73,7 +74,8 @@ app.use(session({
 }))
 app.use(flash());
 require('./passport')(app);
-    
+
+app.use('/scripts', express.static(__dirname + '/node_modules/trumbowyg/dist/trumbowyg.js'));
 
 const index = require('./routes/index');
 app.use('/', index);
