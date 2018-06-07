@@ -83,5 +83,8 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
       
+const note = require('./routes/notes');
+app.use('/note', note);
+      
 
 module.exports = app;
