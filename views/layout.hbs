@@ -3,13 +3,32 @@
 
 <head>
   <title>{{title}}</title>
-  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  {{!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"> --}}
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
-
+  <nav>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" href="/note/display/all">
+                Wszystkie notatki
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/note/add">
+                Dodaj nową
+            </a>
+        </li> 
+        {{#if theUser}}
+        <li>
+            <span class="nav-link">Cześć, {{theUser.username}}!</span>
+        </li>
+        {{/if}}
+    </ul>
+  </nav>
   {{{body}}} 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 

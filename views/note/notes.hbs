@@ -1,6 +1,13 @@
-<h1>Hii</h1>
+<div class="content">
 {{#each notes}}
-<h2>{{this.title}}</h2>
-<h3>{{this.header}}</h3>
-<button><a href="/note/display/{{this._id}}">Zobacz więcej</a></button>
+<div class="card">
+    <div class="card-body">
+        <h2>{{this.title}}</h2>
+        <h3>{{this.header}}</h3>
+        <button class="btn btn-success">
+            <a href="/note/display/{{this._id}}">Zobacz więcej</a>
+        </button>
+    </div>
+</div>
 {{/each}}
+</div>

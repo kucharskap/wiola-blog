@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
+  background-image: url('../images/pattern2.jpg');
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+a{
+  color:white;
+}
+
+nav {
+  background-color: white;
+  // height: 1vh;
+}
+
+.nav-link{
+  font-size: 5vh;
+  padding: 20px;
+  color: palevioletred;
+}
+
+.form{
+  background-color: rgba($color: #fff, $alpha: 0.5)
+}
+
+.content,
+.form{
+  margin: 50px;
 }

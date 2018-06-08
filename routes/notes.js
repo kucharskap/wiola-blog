@@ -1,15 +1,23 @@
 const express = require("express");
 const router = express.Router();
 const Note = require("../models/Note");
+const Comment = require("../models/Comment");
+
 const jQuery = require("jquery");
 const htmlparser = require("htmlparser2");
 
 /* GET home page */
 router.get("/add", (req, res, next) => {
+  if(!req.user){
+    res.redirect('/');
+  }
   res.render("note/note-form");
 });
 
 router.post("/add", (req, res, next) => {
+  if(!req.user){
+    res.redirect('/');
+  }
   const { text, title, header } = req.body;
 
   //removing html tags before saving the
@@ -54,7 +62,13 @@ router.get("/display/:noteId", (req, res, next) => {
   Note.findById(req.params.noteId)
     .then(oneNote => {
       res.locals.note = oneNote;
-      res.render("note/one-note");
+    })
+    .then(()=>{
+      Comment.find({note: req.params.noteId})
+      .then((comment)=>{
+        res.locals.comment = comment;
+        res.render("note/one-note");
+      })
     })
     .catch(err => {
       next(err);
@@ -62,6 +76,9 @@ router.get("/display/:noteId", (req, res, next) => {
 });
 
 router.get("/edit/:noteId", (req, res, next) => {
+  if(!req.user){
+    res.redirect('/');
+  }
   Note.findById(req.params.noteId)
     .then(note => {
       res.locals.note = note;
@@ -73,6 +90,9 @@ router.get("/edit/:noteId", (req, res, next) => {
 });
 
 router.post("/edit/:noteId", (req, res, next)=>{
+  if(!req.user){
+    res.redirect('/');
+  }
     const { title, text, header } = req.body;
     const { noteId } = req.params;
   Note.findByIdAndUpdate( noteId,
@@ -84,6 +104,8 @@ router.post("/edit/:noteId", (req, res, next)=>{
       next(err);
   })
 })
+
+
 
 module.exports = router;
 

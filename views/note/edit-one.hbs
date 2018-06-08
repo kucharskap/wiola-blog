@@ -1,6 +1,15 @@
-<form method="post" action="/note/edit/{{note._id}}">
-  <input name="title" value={{note.title}}>
-  <textarea name="header">{{note.header}}</textarea>
-  <textarea class="summernote" name="text">{{{note.text}}}</textarea>
-  <button>Submit</button>
+<form method="post" action="/note/edit/{{note._id}}" class="form">
+  <div class="form-group">
+    <label>Tytuł</label>
+    <input name="title" value={{note.title}} class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Opis</label>
+    <textarea name="header" class="form-control">{{note.header}}</textarea>
+  </div>
+  <div class="form-group">
+    <label>Tekst</label>
+    <textarea class="summernote" name="text">{{{note.text}}}</textarea>
+  </div>
+  <button class="btn btn-primary">Submit</button>
 </form>
