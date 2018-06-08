@@ -1,5 +1,6 @@
-<form method="post" action="/note/edit">
+<form method="post" action="/note/edit/{{note._id}}">
   <input name="title" value={{note.title}}>
-  <textarea id="summernote" name="text" value={{{note.text}}}></textarea>
+  <textarea name="header">{{note.header}}</textarea>
+  <textarea class="summernote" name="text">{{{note.text}}}</textarea>
   <button>Submit</button>
 </form>

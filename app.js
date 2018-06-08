@@ -85,6 +85,9 @@ app.use('/auth', authRoutes);
       
 const note = require('./routes/notes');
 app.use('/note', note);
-      
+
+const comment = require('./routes/comment');
+app.use('/comment', comment);
+
 
 module.exports = app;
